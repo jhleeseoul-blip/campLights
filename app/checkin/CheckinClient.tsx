@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import type { City } from "@/types";
 
-export default function CheckinClient() {
+export default function CheckinClient({ presetCityId }: { presetCityId?: string }) {
   const router = useRouter();
-  const params = useSearchParams();
-  const presetCityId = params.get("cityId");
 
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<City[]>([]);
