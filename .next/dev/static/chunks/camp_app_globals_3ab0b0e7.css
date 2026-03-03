@@ -1,0 +1,384 @@
+/* [project]/camp/app/globals.css [app-client] (css) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0e1a;
+  --surface: #111827;
+  --border: #1f2937;
+  --text: #e5e7eb;
+  --muted: #6b7280;
+  --blue: #3b82f6;
+  --red: #ef4444;
+  --accent: #10b981;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes pulse-blue {
+  0%, 100% {
+    opacity: .7;
+    transform: scale(1);
+    box-shadow: 0 0 6px 2px #3b82f699;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+    box-shadow: 0 0 14px 6px #3b82f6e6;
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: .8;
+    transform: scale(1);
+    box-shadow: 0 0 8px 3px #ef4444b3;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 20px 8px #ef4444;
+  }
+}
+
+.marker-blue {
+  background: var(--blue);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  animation: 3s ease-in-out infinite pulse-blue;
+}
+
+.marker-red {
+  background: var(--red);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: 1.4s ease-in-out infinite pulse-red;
+}
+
+.page {
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+}
+
+.map-container {
+  flex: 1;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.topbar {
+  z-index: 10;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  background: #0a0e1ad9;
+  border-radius: 40px;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  display: flex;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.topbar h1 {
+  letter-spacing: .05em;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  font-size: .875rem;
+  font-weight: 600;
+  transition: opacity .15s;
+  display: inline-flex;
+}
+
+.btn:hover {
+  opacity: .85;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-red {
+  background: var(--red);
+  color: #fff;
+}
+
+.inner {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.back-link {
+  color: var(--muted);
+  cursor: pointer;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+  font-size: .875rem;
+  display: inline-flex;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 20px;
+}
+
+.search-wrap {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.search-wrap input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  width: 100%;
+  color: var(--text);
+  border-radius: 8px;
+  outline: none;
+  padding: 10px 14px;
+  font-size: 1rem;
+}
+
+.search-wrap input:focus {
+  border-color: var(--accent);
+}
+
+.search-results {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.search-result-item {
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  font-size: .9rem;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: var(--border);
+}
+
+.search-result-item .sub {
+  color: var(--muted);
+  margin-top: 2px;
+  font-size: .78rem;
+}
+
+.msg-wrap {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.msg-wrap input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  width: 100%;
+  color: var(--text);
+  border-radius: 8px;
+  outline: none;
+  padding: 10px 50px 10px 14px;
+  font-size: 1rem;
+}
+
+.msg-wrap input:focus {
+  border-color: var(--accent);
+}
+
+.msg-counter {
+  color: var(--muted);
+  font-size: .75rem;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+.city-header {
+  margin-bottom: 24px;
+}
+
+.city-header .country {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: .875rem;
+}
+
+.checkin-item {
+  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  display: flex;
+}
+
+.checkin-item:last-child {
+  border-bottom: none;
+}
+
+.checkin-item .msg {
+  font-size: .95rem;
+}
+
+.checkin-item .ts {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.legend {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  z-index: 10;
+  background: #0a0e1ad9;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: .8rem;
+  display: flex;
+  position: absolute;
+  bottom: 28px;
+  right: 16px;
+}
+
+.legend-item {
+  align-items: center;
+  gap: 8px;
+  display: flex;
+}
+
+.dot {
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+}
+
+.toggle-row {
+  border-bottom: 1px solid var(--border);
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  display: flex;
+}
+
+.toggle-row:last-child {
+  border-bottom: none;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.selected-city {
+  border: 1px solid var(--accent);
+  background: #10b9811a;
+  border-radius: 8px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  font-size: .9rem;
+  display: flex;
+}
+
+.selected-city button {
+  color: var(--muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1rem;
+}
+
+.status-bar {
+  color: var(--muted);
+  text-align: center;
+  padding: 6px;
+  font-size: .8rem;
+}
+
+.error-msg {
+  color: var(--red);
+  margin-bottom: 12px;
+  font-size: .85rem;
+}
+
+label {
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-size: .85rem;
+  display: block;
+}
+
+/*# sourceMappingURL=camp_app_globals_3ab0b0e7.css.map*/

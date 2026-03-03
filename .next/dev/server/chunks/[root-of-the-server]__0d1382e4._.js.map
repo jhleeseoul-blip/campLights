@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/user/camp/app/api/city-status/route.ts"],"sourcesContent":["import { NextResponse } from 'next/server'\nimport { createClient } from '@supabase/supabase-js'\n\nexport async function GET() {\n  try {\n    const supabase = createClient(\n      process.env.NEXT_PUBLIC_SUPABASE_URL!,\n      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!\n    )\n\n    const { data, error } = await supabase\n      .from('city_status_24h')\n      .select('*')\n\n    if (error) {\n      console.error('Supabase error:', error)\n      return NextResponse.json({ error: error.message }, { status: 500 })\n    }\n\n    return NextResponse.json(data ?? [])\n  } catch (e) {\n    console.error('Caught error:', e)\n    return NextResponse.json({ error: String(e) }, { status: 500 })\n  }\n}"],"names":[],"mappings":";;;;AAAA;AACA;;;AAEO,eAAe;IACpB,IAAI;QACF,MAAM,WAAW,IAAA,wMAAY;QAK7B,MAAM,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,MAAM,SAC3B,IAAI,CAAC,mBACL,MAAM,CAAC;QAEV,IAAI,OAAO;YACT,QAAQ,KAAK,CAAC,mBAAmB;YACjC,OAAO,wJAAY,CAAC,IAAI,CAAC;gBAAE,OAAO,MAAM,OAAO;YAAC,GAAG;gBAAE,QAAQ;YAAI;QACnE;QAEA,OAAO,wJAAY,CAAC,IAAI,CAAC,QAAQ,EAAE;IACrC,EAAE,OAAO,GAAG;QACV,QAAQ,KAAK,CAAC,iBAAiB;QAC/B,OAAO,wJAAY,CAAC,IAAI,CAAC;YAAE,OAAO,OAAO;QAAG,GAAG;YAAE,QAAQ;QAAI;IAC/D;AACF"}}]
+}
