@@ -6,6 +6,29 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 )
 
+export const dynamic = "force-dynamic";
+
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const city_id = searchParams.get('city_id');
+
+  if (!city_id) {
+    return NextResponse.json({ error: 'city_id query parameter required' }, { status: 400 });
+  }
+
+  const { data: checkins, error } = await supabase
+    .from('checkins')
+    .select('*')
+    .eq('city_id', city_id)
+    .gte('expires_at', new Date().toISOString()); // Only get active checkins
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json(checkins, { status: 200 });
+}
+
 export async function POST(req: Request) {
   let body: unknown
   try { body = await req.json() } catch {

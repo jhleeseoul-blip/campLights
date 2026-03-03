@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'CampLights',
   description: 'World camping hotspot map',
   manifest: '/manifest.json',
+}
+
+export const viewport = {
   themeColor: '#0a0e1a',
 }
 

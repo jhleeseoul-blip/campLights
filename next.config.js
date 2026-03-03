@@ -1,3 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    experimental: {
+        turbopack: {
+            root: '.',
+        },
+    },
+}
 module.exports = nextConfig

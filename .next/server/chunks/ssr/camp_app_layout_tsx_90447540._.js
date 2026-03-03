@@ -1,0 +1,3 @@
+module.exports=[73122,a=>{"use strict";var b=a.i(14126);function c({children:a}){return(0,b.jsxs)("html",{lang:"en",children:[(0,b.jsxs)("head",{children:[(0,b.jsx)("link",{rel:"manifest",href:"/manifest.json"}),(0,b.jsx)("meta",{name:"theme-color",content:"#0a0e1a"}),(0,b.jsx)("meta",{name:"apple-mobile-web-app-capable",content:"yes"}),(0,b.jsx)("meta",{name:"apple-mobile-web-app-status-bar-style",content:"black-translucent"})]}),(0,b.jsx)("body",{children:a})]})}a.s(["default",()=>c,"metadata",0,{title:"CampLights",description:"World camping hotspot map",manifest:"/manifest.json"},"viewport",0,{themeColor:"#0a0e1a"}])}];
+
+//# sourceMappingURL=camp_app_layout_tsx_90447540._.js.map
